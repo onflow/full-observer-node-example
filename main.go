@@ -29,9 +29,9 @@ const dataDir = "/tmp/data"
 const localBindAddr = "0.0.0.0:0"
 
 // upstream access node (bootstrap peer)
-const accessNodeHostname = "access-001.canary7.nodes.onflow.org"
+const accessNodeHostname = "access-001.canary8.nodes.onflow.org"
 const accessNodeLibp2pPort = 3569
-const accessNodeNetworkingPublicKey = "\"e0c141fc192cfdced2a3c8d28ab016a31ae3165d0df43e59200187e36ba079d55e7d38cf7a082c7550af716bca27238ef388260e53257802869120f7df2f4dfb\""
+const accessNodeNetworkingPublicKey = "\"210c5aae4b72feb1ee16a84d165e386350e4556e731c132f729c761fbf686f73c4927cbcbb22e464da67354a3ce647673bdb733dca129e3df96d82fb8ae94c00\""
 
 func main() {
 
@@ -72,7 +72,7 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	go follower.Run(ctx)
 
-	time.Sleep(30 * time.Second)
+	time.Sleep(5 * time.Minute)
 	cancel()
 }
 
@@ -92,5 +92,5 @@ func seedFixture(n int) []byte {
 }
 
 func OnBlockFinalizedConsumer(finalizedBlockID flow.Identifier) {
-	fmt.Printf("Received finalized block: %s\n", finalizedBlockID.String())
+	fmt.Printf(">>>>>>>>>>>>>>>>>>>> Received finalized block: %s\n", finalizedBlockID.String())
 }
