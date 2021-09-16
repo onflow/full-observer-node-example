@@ -61,7 +61,7 @@ The following will launch a full node following `access-003.devnet27.nodes.onflo
 ```
 mkdir /tmp/data
 
-make build
+go build -o server --tags relic main.go
 
 export ACCESS_NODE_HOSTNAME=access-003.devnet27.nodes.onflow.org
 export ACCESS_NODE_NETWORKING_PUBLIC_KEY=b662102f4184fc1caeb2933cf87bba75cdd37758926584c0ce8a90549bb12ee0f9115111bbbb6acc2b889461208533369a91e8321eaf6bcb871a788ddd6bfbf7
