@@ -20,11 +20,11 @@ import (
 
 const (
 
-	// downloaded genesis data
-	defaultBootstrapDir = "./bootstrap"
-
 	// directory to store chain state
 	defaultDataDir = "/tmp/data"
+
+	// downloaded genesis data
+	defaultBootstrapDir = "./bootstrap"
 
 	// consensus followers own address
 	defaultLocalBindAddr = "0.0.0.0:0"
@@ -38,8 +38,8 @@ const (
 func main() {
 
 	var err error
-	bootstrapDir := getEnv("BOOTSTRAP_DIR", defaultBootstrapDir)
 	dataDir := getEnv("DATA_DIR", defaultDataDir)
+	bootstrapDir := getEnv("BOOTSTRAP_DIR", defaultBootstrapDir)
 	localBindAddr := getEnv("LOCAL_BIND_ADDRESS", defaultLocalBindAddr)
 	accessNodeHostname := getEnv("ACCESS_NODE_HOSTNAME", defaultAccessNodeHostname)
 	accessNodeNetworkingPublicKey := getEnv("ACCESS_NODE_NETWORKING_PUBLIC_KEY", defaultAccessNodeNetworkingPublicKey)
@@ -77,7 +77,7 @@ func main() {
 		follower.WithBootstrapDir(bootstrapDir),
 	}
 
-	fmt.Println("Initializing Consensus Follower")
+	// initialize the consensus follower
 	cf, err := follower.NewConsensusFollower(myKey, localBindAddr, []follower.BootstrapNodeInfo{bootstrapNodeInfo}, opts...)
 	if err != nil {
 		fatalError(err)
@@ -88,8 +88,9 @@ func main() {
 	// initialize signal catcher
 	sig := make(chan os.Signal, 1)
 	signal.Notify(sig, os.Interrupt, syscall.SIGTERM)
+	defer close(sig)
 
-	fmt.Println("Running")
+	// run the observer node
 	ctx, cancel := context.WithCancel(context.Background())
 	go cf.Run(ctx)
 
@@ -98,15 +99,7 @@ func main() {
 	cancel()
 }
 
-func generateKey() (crypto.PrivateKey, error) {
-	seed := make([]byte, crypto.KeyGenSeedMinLenECDSASecp256k1)
-	n, err := rand.Read(seed)
-	if err != nil || n != crypto.KeyGenSeedMinLenECDSASecp256k1 {
-		return nil, err
-	}
-	return utils.GenerateUnstakedNetworkingKey(seedFixture(n))
-}
-
+// decode a public key from a hex string
 func decodePublicKey(hexKey string) (crypto.PublicKey, error) {
 	bz, err := hex.DecodeString(hexKey)
 	if err != nil {
@@ -114,6 +107,16 @@ func decodePublicKey(hexKey string) (crypto.PublicKey, error) {
 	}
 
 	return crypto.DecodePublicKey(crypto.ECDSAP256, bz)
+}
+
+// generate a new network key
+func generateKey() (crypto.PrivateKey, error) {
+	seed := make([]byte, crypto.KeyGenSeedMinLenECDSASecp256k1)
+	n, err := rand.Read(seed)
+	if err != nil || n != crypto.KeyGenSeedMinLenECDSASecp256k1 {
+		return nil, err
+	}
+	return utils.GenerateUnstakedNetworkingKey(seedFixture(n))
 }
 
 func seedFixture(n int) []byte {
@@ -135,6 +138,7 @@ func fatalError(err error) {
 	os.Exit(1)
 }
 
+// handle new finalized block events
 func OnBlockFinalizedConsumer(finalizedBlockID flow.Identifier) {
 	fmt.Printf(">>>>>>>>>>>>>>>>>>>> Received finalized block: %s\n", finalizedBlockID.String())
 }

@@ -56,7 +56,7 @@ Clone the `flow-go` repo
 git clone https://github.com/onflow/flow-go.git
 ```
 
-Follow the instructions in the `flow-go` README up to `make install-tools`.
+Follow the instructions in the `flow-go` [README](https://github.com/onflow/flow-go/blob/master/README.md) up to `make install-tools`.
 
 Once `crypto` has been installed, build the observer node.
 ```
