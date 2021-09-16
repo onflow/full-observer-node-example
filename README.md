@@ -49,7 +49,7 @@ Access-004:
 ## Launching your node
 
 ### Install dependencies
-Clone the `flow-go` repo. It's required for the to build the `crypto` module.
+Clone the `flow-go` repo. The `crypto` module must be built to use the libraries.
 ```
 git clone https://github.com/onflow/flow-go.git
 ```
