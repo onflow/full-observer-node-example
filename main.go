@@ -49,8 +49,7 @@ func main() {
 	if port != "" {
 		accessNodeLibp2pPort, err = strconv.Atoi(port)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Invalid value for ACCESS_NODE_LIBP2P_PORT %v\n", port)
-			fatalError(err)
+			fatalError(fmt.Errorf("Invalid value %s for ACCESS_NODE_LIBP2P_PORT: %w", port, err))
 		}
 	}
 
@@ -134,7 +133,7 @@ func getEnv(key, fallback string) string {
 }
 
 func fatalError(err error) {
-	fmt.Fprintf(os.Stderr, "error: %v\n", err)
+	fmt.Fprintln(os.Stderr, err)
 	os.Exit(1)
 }
 

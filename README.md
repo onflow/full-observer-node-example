@@ -36,7 +36,7 @@ Primary key fingerprint: 7D23 8D1A E6D3 2A71 8ECD  8611 CB52 64F7 FD4C DD27
 
 ## Staked Access Nodes
 
-The following access nodes support connections from observer nodes:
+The following testnet access nodes support connections from observer nodes:
 
 Access-003:
 * Host: `access-003.devnet27.nodes.onflow.org`
@@ -64,7 +64,7 @@ go build -o observer --tags relic main.go
 ```
 
 ### Launch
-The following will launch a full node following `access-003.devnet27.nodes.onflow.org` on testnet
+Launch the observer node following `access-003.devnet27.nodes.onflow.org` on testnet
 ```
 mkdir /tmp/data
 
