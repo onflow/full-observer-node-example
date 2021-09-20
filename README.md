@@ -72,3 +72,19 @@ export ACCESS_NODE_HOSTNAME=access-003.devnet27.nodes.onflow.org
 export ACCESS_NODE_NETWORKING_PUBLIC_KEY=b662102f4184fc1caeb2933cf87bba75cdd37758926584c0ce8a90549bb12ee0f9115111bbbb6acc2b889461208533369a91e8321eaf6bcb871a788ddd6bfbf7
 ./observer
 ```
+
+### For Mainnet use the following:
+
+```
+mkdir -p bootstrap/public-root-information
+wget -P bootstrap/public-root-information https://storage.googleapis.com/flow-genesis-bootstrap/full_observer_bootstrap_mainnet/root-protocol-state-snapshot.json
+wget -P bootstrap/public-root-information https://storage.googleapis.com/flow-genesis-bootstrap/full_observer_bootstrap_mainnet/root-protocol-state-snapshot.json.asc
+```
+
+Access-008:
+* Host: `access-008.mainnet13.nodes.onflow.org`
+* Public Key: `11742552d21ac93da37ccda09661792977e2ca548a3b26d05f22a51ae1d99b9b75c8a9b3b40b38206b38951e98e4d145f0010f8942fd82ddf0fb1d670202264a`
+
+Access-009:
+* Host: `access-009.mainnet13.nodes.onflow.org`
+* Public Key: `2eefc9efc5b528f99f8726c20a076fec3ecfd38482cfa2c79fc5152fdd0798909946559ebdace3b446cd5e5081b3e584d23195f9670c604905e0927d11fd7416`
