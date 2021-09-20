@@ -8,4 +8,4 @@ require (
 )
 
 // crypto needs to be locally installed and compiled
-replace github.com/onflow/flow-go/crypto => ./crypto
+replace github.com/onflow/flow-go/crypto => ./flow-go/crypto
