@@ -59,13 +59,13 @@ Access-004:
 
 ##### For mainnet
 
+Access-007:
+* Host: `access-007.mainnet13.nodes.onflow.org`
+* Public Key: `28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae`
+
 Access-008:
 * Host: `access-008.mainnet13.nodes.onflow.org`
 * Public Key: `11742552d21ac93da37ccda09661792977e2ca548a3b26d05f22a51ae1d99b9b75c8a9b3b40b38206b38951e98e4d145f0010f8942fd82ddf0fb1d670202264a`
-
-Access-009:
-* Host: `access-009.mainnet13.nodes.onflow.org`
-* Public Key: `2eefc9efc5b528f99f8726c20a076fec3ecfd38482cfa2c79fc5152fdd0798909946559ebdace3b446cd5e5081b3e584d23195f9670c604905e0927d11fd7416`
 
 ## Launching your node
 
