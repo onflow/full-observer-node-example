@@ -1,6 +1,6 @@
 # Setting Up a Consensus Follower
 
-A full observer node needs to follow the Flow protocol consensus to keep track of new finalized blocks. This is done using the consensus follower library included in [onflow/flow-go/follower](https://github.com/onflow/flow-go/blob/master/follower/consensus_follower.go). This repo provides a working example of how to use the consensus follower library.
+A full observer node needs to follow the Flow protocol consensus to keep track of new finalized blocks. This is done using the consensus follower library included in [github.com/onflow/flow-go/follower](https://github.com/onflow/flow-go/blob/master/follower/consensus_follower.go). This repo provides a working example of how to use the consensus follower library.
 
 For an example of a complete full observer node, see [DPS](https://github.com/optakt/flow-dps).
 
