@@ -86,6 +86,12 @@ go build -o observer --tags relic main.go
 
 ### Launch
 
+The following are examples of how to launch observer nodes following staked Access Nodes in different networks.
+
+Note: the node addresses change each spork, but the networking public key remains the same.
+e.g. for mainnet 14 `access-008.mainnet13.nodes.onflow.org` becomes `access-008.mainnet14.nodes.onflow.org`.
+See [Past Sporks](https://docs.onflow.org/node-operation/past-sporks/) for the current spork for each network.
+
 ##### For testnet
 
 Launch the observer node following `access-003.devnet27.nodes.onflow.org` on testnet
