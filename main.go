@@ -74,6 +74,7 @@ func main() {
 	opts := []follower.Option{
 		follower.WithDataDir(dataDir),
 		follower.WithBootstrapDir(bootstrapDir),
+		// follower.WithLogLevel("debug"),
 	}
 
 	// initialize the consensus follower
