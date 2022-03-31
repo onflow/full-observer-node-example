@@ -22,3 +22,4 @@ bootstrap/
 data/
 crypto/
 flow-go/
+observer

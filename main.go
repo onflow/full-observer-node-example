@@ -11,8 +11,8 @@ import (
 	"syscall"
 
 	"github.com/onflow/flow-go/cmd/bootstrap/utils"
+	"github.com/onflow/flow-go/consensus/hotstuff/model"
 	"github.com/onflow/flow-go/follower"
-	"github.com/onflow/flow-go/model/flow"
 
 	// crypto needs to be locally installed and compiled
 	"github.com/onflow/flow-go/crypto"
@@ -21,7 +21,7 @@ import (
 const (
 
 	// directory to store chain state
-	defaultDataDir = "/tmp/data"
+	defaultDataDir = "./data"
 
 	// downloaded genesis data
 	defaultBootstrapDir = "./bootstrap"
@@ -30,8 +30,8 @@ const (
 	defaultLocalBindAddr = "0.0.0.0:0"
 
 	// upstream access node (bootstrap peer)
+	defaultAccessNodeLibp2pPort          = 3570
 	defaultAccessNodeHostname            = "access-001.canary8.nodes.onflow.org"
-	defaultAccessNodeLibp2pPort          = 3569
 	defaultAccessNodeNetworkingPublicKey = "210c5aae4b72feb1ee16a84d165e386350e4556e731c132f729c761fbf686f73c4927cbcbb22e464da67354a3ce647673bdb733dca129e3df96d82fb8ae94c00"
 )
 
@@ -139,6 +139,6 @@ func fatalError(err error) {
 }
 
 // handle new finalized block events
-func OnBlockFinalizedConsumer(finalizedBlockID flow.Identifier) {
-	fmt.Printf(">>>>>>>>>>>>>>>>>>>> Received finalized block: %s\n", finalizedBlockID.String())
+func OnBlockFinalizedConsumer(block *model.Block) {
+	fmt.Printf(">>>>>>>>>>>>>>>>>>>> Received finalized block: %s\n", block.BlockID.String())
 }
