@@ -85,7 +85,7 @@ Follow the instructions in the `flow-go` [README](https://github.com/onflow/flow
 
 Once `crypto` has been installed, build the observer node.
 ```
-go build -o observer --tags relic main.go
+go build --tags relic -o observer main.go
 ```
 
 ### Launch
@@ -94,11 +94,11 @@ The following are examples of how to launch observer nodes following staked Acce
 
 ##### For testnet
 
-Launch the observer node following `access-003.devnet30.nodes.onflow.org` on testnet
+Launch the observer node following `access-003.devnet33.nodes.onflow.org` on testnet
 ```
 mkdir /tmp/data
 
-export DEVNET_SPORK=devnet30
+export DEVNET_SPORK=devnet33
 export ACCESS_NODE_HOSTNAME=access-003.${DEVNET_SPORK}.nodes.onflow.org
 export ACCESS_NODE_NETWORKING_PUBLIC_KEY=b662102f4184fc1caeb2933cf87bba75cdd37758926584c0ce8a90549bb12ee0f9115111bbbb6acc2b889461208533369a91e8321eaf6bcb871a788ddd6bfbf7
 ./observer
@@ -106,11 +106,11 @@ export ACCESS_NODE_NETWORKING_PUBLIC_KEY=b662102f4184fc1caeb2933cf87bba75cdd3775
 
 ##### For mainnet
 
-Launch the observer node following `access-008.mainnet14.nodes.onflow.org` on mainnet
+Launch the observer node following `access-008.mainnet16.nodes.onflow.org` on mainnet
 ```
 mkdir /tmp/data
 
-export MAINNET_SPORK=mainnet14
+export MAINNET_SPORK=mainnet16
 export ACCESS_NODE_HOSTNAME=access-008.${MAINNET_SPORK}.nodes.onflow.org
 export ACCESS_NODE_NETWORKING_PUBLIC_KEY=11742552d21ac93da37ccda09661792977e2ca548a3b26d05f22a51ae1d99b9b75c8a9b3b40b38206b38951e98e4d145f0010f8942fd82ddf0fb1d670202264a
 ./observer
